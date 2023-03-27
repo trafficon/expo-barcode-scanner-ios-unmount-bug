@@ -1,20 +1,21 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { QrScannerScreen } from "./src/QrScannerScreen";
+import { MainStackParamList } from "./src/types/MainStackParamList";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { HomeScreen } from "./src/HomeScreen";
+import { NavigationContainer } from "@react-navigation/native";
+import { AppTabParamList } from "./src/types/AppTabParamList";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { MainStack } from "./src/MainStack";
+
+const Tab = createBottomTabNavigator<AppTabParamList>();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name={"Main"} component={MainStack} />
+      </Tab.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
