@@ -4,18 +4,8 @@ import {
   BarCodeScanner,
   PermissionStatus,
 } from "expo-barcode-scanner";
-import {
-  Alert,
-  Linking,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
-import { CompositeScreenProps, useLinkTo } from "@react-navigation/native";
+import { Alert, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { SafeAreaView } from "react-native-safe-area-context";
-import Constants from "expo-constants";
 import { MainStackParamList } from "./types/MainStackParamList";
 
 const styles = StyleSheet.create({
@@ -38,11 +28,6 @@ type QrScannerScreenProps = NativeStackScreenProps<
   MainStackParamList,
   "QrScanner"
 >;
-
-//   CompositeScreenProps<
-//   NativeStackScreenProps<AppStackParamList, "QRScanner">,
-//   BottomTabScreenProps<MainTabParamList, "MapTab">
-// >;
 
 export const QrScannerScreen = ({
   navigation: { goBack },
@@ -91,7 +76,7 @@ export const QrScannerScreen = ({
 
       <View style={styles.container}>
         <TouchableOpacity onPress={() => goBack()}>
-          <Text>Cancel</Text>
+          <Text>Go Back</Text>
         </TouchableOpacity>
       </View>
     </View>
